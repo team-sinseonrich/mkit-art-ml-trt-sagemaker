@@ -49,7 +49,7 @@ def load_sam():
 
 # InstructPix2Pix
 def load_instructpix2pix():
-    model_id = "timbrooks/instruct-pix2pix"
+    model_id = cfg.p2p_model_id
     pipe = StableDiffusionInstructPix2PixPipeline.from_pretrained(model_id, torch_dtype=torch.float16, safety_checker=None)
     pipe.to(cfg.device)
     pipe.scheduler = EulerAncestralDiscreteScheduler.from_config(pipe.scheduler.config)
